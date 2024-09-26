@@ -161,35 +161,39 @@ class EpicGamesSensor(Entity):
         games = http.get(self.url, headers=self.headers)
         parsed_games = games.json()["data"]["Catalog"]["searchStore"]["elements"]
         if games.ok:
-            self._games.clear()
-            self._games = [
-                {
-                    "title_default": "$title",
-                    "line1_default": "$rating",
-                    "line2_default": "$release",
-                    "line3_default": "$runtime",
-                    "line4_default": "$studio",
-                    "icon": "mdi:arrow-down-bold",
-                }
-            ]
-            self._games.extend(
-                [
-                    dict(
-                        title=game.get("title"),
-                        poster=game["keyImages"][0]["url"]
-                        if game["keyImages"]
-                        else DEFAULT_POSTER,
-                        rating=self.get_score_metacritic(game.get("title")),
-                        synopsis=game.get("description"),
-                        studio=game["seller"]["name"],
-                        runtime=game["viewableDate"].split("T")[0],
-                        release="$date",
-                        airdate=game["viewableDate"].split("T")[0],
+            for game in parsed_games:
+                if game['promotions'] and game['promotions']['promotionalOffers'] and game['price'] \
+                        and game['price']['totalPrice'] and game['price']['totalPrice']['discountPrice'] == 0:
+                    self._games.clear()
+                    self._games = [
+                        {
+                            "title_default": "$title",
+                            "line1_default": "$rating",
+                            "line2_default": "$release",
+                            "line3_default": "$runtime",
+                            "line4_default": "$studio",
+                            "line5_default": "$availableUntil",
+                            "icon": "mdi:arrow-down-bold",
+                        }
+                    ]
+                    self._games.extend(
+                        [
+                            dict(
+                                title=game.get("title"),
+                                poster=game["keyImages"][0]["url"]
+                                if game["keyImages"]
+                                else DEFAULT_POSTER,
+                                rating=self.get_score_metacritic(game.get("title")),
+                                synopsis=game.get("description"),
+                                studio=game["seller"]["name"],
+                                runtime=game["viewableDate"].split("T")[0],
+                                release="$date",
+                                availableUntil=game['promotions']['promotionalOffers'][0]['promotionalOffers'][0]['endDate'].split("T")[0],
+                                airdate=game["viewableDate"].split("T")[0],
+                            )
+                        ]
                     )
-                    for game in parsed_games
-                ]
-            )
 
-            _LOGGER.debug("Payload received: %s", games.json())
+                    _LOGGER.debug("Payload received: %s", games.json())
         else:
             _LOGGER.debug("Error received: %s", games.content)
