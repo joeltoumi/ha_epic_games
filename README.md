@@ -14,23 +14,23 @@ Have HACS installed, this will allow you to update easily.
 
 Adding Epic Games to HACS can be using this button:
 
-[![image](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=joeltoumi&repository=ha_epic_games&category=integration)
+[![image](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=joeltoumi&repository=ha_free_epic_games&category=integration)
 
-If the button above doesn't work, add `https://github.com/joeltoumi/ha_epic_games` as a custom repository of type Integration in HACS.
+If the button above doesn't work, add `https://github.com/joeltoumi/ha_free_epic_games` as a custom repository of type Integration in HACS.
 
 - Click Install on the `Epic Games` integration.
 - Restart the Home Assistant.
 
 ### Manual installation
 
-- Copy `epic_games` folder from [latest release](https://github.com/joeltoumi/ha_epic_games/releases/latest) to your `<config dir>/custom_components/` directory.
+- Copy `epic_games` folder from [latest release](https://github.com/joeltoumi/ha_free_epic_games/releases/latest) to your `<config dir>/custom_components/` directory.
 - Restart the Home Assistant.
 
 ## Configuration
 
 Adding Epic Games to your Home Assistant instance can be done via the UI using this button:
 
-[![image](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=epic_games)
+[![image](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=free_epic_games)
 
 ### Manual Configuration
 
