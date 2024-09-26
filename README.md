@@ -1,4 +1,6 @@
-![hacs_badge](https://img.shields.io/badge/hacs-custom-orange.svg) [![BuyMeCoffee][buymecoffeebedge]][buymecoffee] [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
+![hacs_badge](https://img.shields.io/badge/hacs-custom-orange.svg) [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
+
+This is a fork of the original project. I have updated it to show only the free games of the week. It also covers the daily free games of the winter season.
 
 # Epic Games Custom Integration Home Assistant
 
@@ -12,16 +14,16 @@ Have HACS installed, this will allow you to update easily.
 
 Adding Epic Games to HACS can be using this button:
 
-[![image](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=hudsonbrendon&repository=ha_epic_games&category=integration)
+[![image](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=joeltoumi&repository=ha_epic_games&category=integration)
 
-If the button above doesn't work, add `https://github.com/hudsonbrendon/ha_epic_games` as a custom repository of type Integration in HACS.
+If the button above doesn't work, add `https://github.com/joeltoumi/ha_epic_games` as a custom repository of type Integration in HACS.
 
 - Click Install on the `Epic Games` integration.
 - Restart the Home Assistant.
 
 ### Manual installation
 
-- Copy `epic_games` folder from [latest release](https://github.com/hudsonbrendon/ha_epic_games/releases/latest) to your `<config dir>/custom_components/` directory.
+- Copy `epic_games` folder from [latest release](https://github.com/joeltoumi/ha_epic_games/releases/latest) to your `<config dir>/custom_components/` directory.
 - Restart the Home Assistant.
 
 ## Configuration
